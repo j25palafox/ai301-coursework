@@ -15,22 +15,35 @@ wrong label is not graded.
 
 **Issue link**
 
-[The individual Path Review issue page. A link to the repository or the issue list
-does not satisfy this field.]
+https://github.com/codepath/pathreview-ai301-fa26-s3/issues/56
+
 
 **Verdict output**
 
-[Your skill's live-mode output for this issue, pasted verbatim and ending with the
-fenced JSON verdict block. A summary does not satisfy this field.]
+**#56 (Structural chunker) — ACCEPT** ✓
+- AI-assisted work is silent/allowed (no explicit ban in contributing docs)
+- Maintainer committed 2026-09-16 (within 60 days)
+- Not archived; activity on 2026-09-16 (within 30 days)
+- Bounded scope with explicit test case and clear success condition
+- No assignee, no comments, no linked PRs
+- **Fit: BEST MATCH** — explicit test failure provides a clear verification path, low difficulty with good learning value
 
-**The verdict must record `accept` for this issue.** Choose an issue your own skill
-accepts. If your skill rejects every candidate you try, that is a signal about your
-rubric rather than about the issues: revise it and re-run — retries are unlimited and a
-partial re-run costs about $0.20 — or run the skill on different candidates. Output
-recording `reject` for the issue you chose earns no credit for this field.
 
 ```
-paste the output here, including the closing JSON block
+[
+  {
+    "item": "https://github.com/codepath/pathreview-ai301-fa26-s3/issues/56",
+    "checks": [
+      {"name": "AI-assisted workflow permitted", "grade": "pass", "evidence": "CONTRIBUTING.md and README silent on AI restrictions; course is AI-focused (AI301)"},
+      {"name": "Maintainer activity", "grade": "pass", "evidence": "Andrew Burke commits on 2026-09-16 (6 days ago, within 60-day window)"},
+      {"name": "Repo activity", "grade": "pass", "evidence": "Not archived; push on 2026-09-16 (within 30-day window)"},
+      {"name": "Newcomer-fit and bounded scope", "grade": "pass", "evidence": "Clear bounded task: fix chunker to handle documents without headings, with explicit failing test `test_document_with_no_headings`"},
+      {"name": "Claim status", "grade": "pass", "evidence": "No assignees, no comments, no linked PRs; issue open since 2026-09-10"}
+    ],
+    "verdict": "accept"
+  },
+]
+
 ```
 
 ---
@@ -41,27 +54,26 @@ Quote source text directly in each field below. Paraphrase does not satisfy them
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+agreement: 18/20
 
 **Issue analysis**
 
-[One scored issue, identified by id (`issue-01` through `issue-20`; the `calib-`
-issues are not scored). State your rubric's decision, the gold label, and the
-reasoning that produced your rubric's result.]
+issue-01  accept  reject   NO     failed: Newcomer-fit and bounded scope
 
 **Check rationale**
 
-[One check from the `rubric.md` uploaded to `tools/issue-select/`, quoted as it is
-currently written, with the reasoning behind its current form.]
+```
+| Newcomer-fit and bounded scope | Issue body; issue thread; maintainer comments; labels; linked or mentioned prior attempts | Pass if the issue asks for one bounded outcome with a clear success condition. Exact files, functions, tests, or implementation steps are not required. Multiple related files may be changed when they all support the same contained goal, and suspected causes, alternative approaches, or optional suggestions do not count as separate scope unless they are required deliverables. Fail if the issue is an umbrella/tracking issue, unresolved design debate, pure support request, highly open-ended core-internals change, requires coordinated implementation across multiple substantial product surfaces, leaves important product/specification decisions unresolved, or is a very old issue with repeated abandoned attempts that indicate substantial unresolved difficulty. | Required |
+```
+
+I wrote this check to favor issues that are bounded enough for an early-career engineer to understand, investigate, and verify without requiring broad system-wide changes. I wanted to allow work that may touch multiple related files when they all contribute to one contained outcome, while filtering out issues that span several distinct product areas, depend on unresolved design decisions, or are too open-ended to have a clear definition of done. I also included the age and abandoned-attempt criteria to avoid issues whose history suggests hidden complexity or unresolved difficulty.
+
+
 
 **Trade-offs**
 
-[What the quoted check gives up. Any one of these is a complete answer: an issue whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+I repeatedly revised this check because `issue-01` was being rejected when I expected it to be accepted. After one revision, I re-ran `issue-01` with `--only` as a canary and it passed, but it was rejected again in the final full eval. This showed me that making the check flexible enough to allow bounded work across multiple related files also left some room for interpretation. I accepted that trade-off rather than making the rule so specific to `issue-01` that it would overfit one example.
+
 
 ---
 
@@ -73,12 +85,7 @@ This is also the basis for the claim comment you write in Unit 2.
 
 **Selection rationale**
 
-[Answer all three:
-
-1. The issue's fit to your interests and to the time available.
-2. What the verdict identified correctly, and what you weighed that the rubric could
-   not.
-3. The anticipated difficulty in claiming it.]
+This issue fits my interests because I enjoy debugging existing application logic, and its scope seems realistic for the time available in the course. The verdict correctly identified that the issue is bounded, has a clear outcome, and does not appear to already be claimed. Beyond the rubric, I also considered my familiarity with ingestion and chunking, which made me feel that the issue was manageable within the available time. I do not expect claiming it to be especially difficult because it is currently unassigned, although there is still a chance another contributor could claim it first.
 
 ---
 
