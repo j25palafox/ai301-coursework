@@ -64,6 +64,52 @@ Fixes issue #56 by updating the structural chunker so non-empty documents withou
 [Your Unit 2 reproduction steps re-run against the built change: the before, then the
 after. Paste both, including the commands you ran and their output.]
 
+## Evidence
+
+### Before — Unit 2 reproduction
+
+The original implementation returned zero chunks for non-empty plain text without Markdown headings.
+
+Commands:
+
+```python
+from ingestion.chunking.structural_chunker import StructuralChunker
+c = StructuralChunker()
+print(len(c.chunk(
+    "This is a plain document with no headings at all. " * 20,
+    {}
+)))
+```
+
+Output:
+
+```text
+0
+```
+
+### After — Unit 3 implementation
+
+Reran the same reproduction against the updated implementation.
+
+Commands:
+
+```python
+from ingestion.chunking.structural_chunker import StructuralChunker
+c = StructuralChunker()
+print(len(c.chunk(
+    "This is a plain document with no headings at all. " * 20,
+    {}
+)))
+```
+
+Output:
+
+```text
+1
+```
+
+The same non-empty input that previously returned zero chunks now returns one chunk. This confirms that the updated `StructuralChunker` no longer discards documents solely because they lack Markdown headings.
+
 ## Eval iterations
 
 Answer all four sections. Quote source text directly; paraphrase does not satisfy these
