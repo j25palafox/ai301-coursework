@@ -17,4 +17,6 @@ I’m keeping the scope limited to `ingestion/chunking/structural_chunker.py` an
 why. If nothing changed, say so in your own words - "nothing changed;
 the plan held" earns these points in full. Leaving this blank does not.]
 
-No deviations from the planned implementation. The changes allow heading-less documents to retain their content and emit a level-0 section without modifying Markdown heading detection or hierarchy logic. The existing issue #56 regression test now passes without the `xfail` marker, and all 15 structural chunker unit tests pass.
+The implementation followed the planned approach. Heading-less documents now retain their content through a level-0 section without changing Markdown heading detection or hierarchy logic. The existing issue #56 regression test passes without the `xfail` marker, and all 15 structural chunker unit tests pass.
+
+One incidental change was introduced by Black's pre-commit hook: it reformatted the `large_section` assignment in `test_large_section_sub_chunked`. This was not part of the planned implementation and does not change test behavior.
