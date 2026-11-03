@@ -55,10 +55,10 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Built and evaluated an issue-scout with a targeted search strategy**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I built an issue-scout skill using a search strategy and rubric to evaluate open-source issues based on AI policies, repository and maintainer activity, scope, and claim status. My initial scan produced promising candidates but also surfaced issues that were already assigned, while other candidates were closed before I could act on them. This revealed that search results and assignment status alone were insufficient to establish whether an issue was available. I supplemented the scout's grading with manual checks of issue discussions and related pull requests, identifying where the claim-status checks needed improvement.
+
 
 **Unit 6: [one line on the tool work]**
 
