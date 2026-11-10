@@ -135,11 +135,6 @@ The existing core test suite passes, but the requested direct test coverage is m
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
-
 | Environment Used|  |
 |---|---|
 Operating system| macOS
